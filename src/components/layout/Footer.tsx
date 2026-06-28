@@ -39,7 +39,7 @@ export function Footer() {
         <div>
           <h4 className="font-semibold text-gray-900 mb-4 tracking-wide">Contact</h4>
           <ul className="space-y-2 text-sm text-gray-600">
-            <li>Email: sales@mselectronics.com</li>
+            <li>Email: siva@mselectronicscompany.com</li>
             <li>Phone: +91 9246288140</li>
             <li className="pt-2">
               <Link href="/contact" className="text-accent hover:underline">

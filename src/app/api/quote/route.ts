@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     });
 
     const mailOptions = {
-      from: process.env.SMTP_FROM_EMAIL || 'quotes@mselectronics.com',
+      from: process.env.SMTP_FROM_EMAIL || 'siva@mselectronicscompany.com',
       to: process.env.BUSINESS_EMAIL || process.env.SMTP_USER,
       subject: `New Quote Request from ${data.companyName}`,
       html: `
@@ -65,7 +65,7 @@ export async function POST(req: Request) {
 
     // Auto-responder to customer
     const autoResponderOptions = {
-      from: process.env.SMTP_FROM_EMAIL || 'quotes@mselectronics.com',
+      from: process.env.SMTP_FROM_EMAIL || 'siva@mselectronicscompany.com',
       to: data.email,
       subject: `Quote Request Received - MS Electronics`,
       html: `

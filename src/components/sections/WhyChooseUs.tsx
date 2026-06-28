@@ -24,7 +24,7 @@ const features = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#0a0a0a]">
+    <section className="py-24 relative overflow-hidden bg-slate-50">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -43,17 +43,17 @@ export function WhyChooseUs() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-5xl font-bold text-white tracking-tight"
+                className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight"
               >
                 Uncompromising Quality.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white">Global Standards.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-gray-900">Global Standards.</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-gray-400 text-lg leading-relaxed max-w-lg"
+                className="text-gray-600 text-lg leading-relaxed max-w-lg"
               >
                 We partner with OEMs worldwide to design, manufacture, and integrate mission-critical display solutions that simply cannot fail.
               </motion.p>
@@ -73,8 +73,8 @@ export function WhyChooseUs() {
                     <feature.icon className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -90,25 +90,25 @@ export function WhyChooseUs() {
             className="relative lg:h-[600px] w-full"
           >
             <div className="absolute inset-0 bg-accent/10 rounded-3xl blur-3xl transform rotate-3"></div>
-            <div className="relative h-full w-full rounded-3xl overflow-hidden border border-white/10 glass-panel p-2">
+            <div className="relative h-full w-full rounded-3xl overflow-hidden border border-black/5 bg-white shadow-xl p-2">
               <img 
                 src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=80" 
                 alt="Cleanroom Manufacturing" 
                 className="w-full h-full object-cover rounded-2xl opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent rounded-2xl"></div>
               
               {/* Floating Stat Badge */}
               <motion.div 
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-8 left-8 glass p-6 rounded-2xl border border-white/20 max-w-xs"
+                className="absolute bottom-8 left-8 bg-white shadow-2xl p-6 rounded-2xl border border-black/5 max-w-xs"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <CheckCircle2 className="w-8 h-8 text-accent" />
-                  <span className="text-3xl font-bold text-white">100%</span>
+                  <span className="text-3xl font-bold text-gray-900">100%</span>
                 </div>
-                <p className="text-white/80 font-medium">Yield Guarantee on Custom Optical Bonding</p>
+                <p className="text-gray-600 font-medium">Yield Guarantee on Custom Optical Bonding</p>
               </motion.div>
             </div>
           </motion.div>

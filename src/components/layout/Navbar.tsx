@@ -31,17 +31,19 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
+        "fixed top-0 w-full z-50 transition-all duration-300 border-b",
         isScrolled
-          ? "glass py-4 shadow-lg border-black/5"
-          : "bg-transparent py-6"
+          ? "glass py-4 shadow-lg border-white/10"
+          : "bg-transparent py-6 border-transparent"
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2 z-50 relative group">
-          <img src="/logo.png" alt="MS Electronics Logo" className="h-10 w-auto object-contain" />
-          <span className="text-4xl md:text-5xl font-extrabold tracking-wider text-gray-900 group-hover:text-glow transition-all duration-300">
-            MS <span className="text-accent">Electronics</span>
+        <Link href="/" className="flex items-center space-x-3 z-50 relative group">
+          <div className="bg-white p-1.5 rounded-sm shadow-md">
+            <img src="/logo.png" alt="MS Electronics Logo" className="h-9 w-auto object-contain" />
+          </div>
+          <span className="text-3xl md:text-4xl font-extrabold tracking-wider text-white group-hover:text-glow transition-all duration-300">
+            Electronics
           </span>
         </Link>
 
@@ -53,20 +55,20 @@ export function Navbar() {
               href={link.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-accent",
-                pathname === link.href ? "text-accent" : "text-gray-700"
+                pathname === link.href ? "text-accent" : "text-gray-300"
               )}
             >
               {link.name}
             </Link>
           ))}
-          <Button variant="premium" size="sm" asChild>
+          <Button variant="default" size="sm" className="bg-accent text-white hover:bg-accent/90 border-0" asChild>
             <Link href="/#quote">Request Quote</Link>
           </Button>
         </nav>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden z-50 relative p-2 text-gray-900"
+          className="md:hidden z-50 relative p-2 text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -76,7 +78,7 @@ export function Navbar() {
       {/* Mobile Nav Overlay */}
       <div
         className={cn(
-          "fixed inset-0 bg-white/95 backdrop-blur-xl z-40 md:hidden flex flex-col items-center justify-center space-y-8 transition-opacity duration-300",
+          "fixed inset-0 bg-black/95 backdrop-blur-xl z-40 md:hidden flex flex-col items-center justify-center space-y-8 transition-opacity duration-300",
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
@@ -85,12 +87,12 @@ export function Navbar() {
             key={link.name}
             href={link.href}
             onClick={() => setMobileMenuOpen(false)}
-            className="text-2xl font-bold text-gray-700 hover:text-accent transition-colors"
+            className="text-2xl font-bold text-gray-300 hover:text-accent transition-colors"
           >
             {link.name}
           </Link>
         ))}
-        <Button variant="premium" size="lg" asChild onClick={() => setMobileMenuOpen(false)}>
+        <Button variant="default" size="lg" className="bg-accent text-white hover:bg-accent/90 border-0" asChild onClick={() => setMobileMenuOpen(false)}>
           <Link href="/#quote">Request Quote</Link>
         </Button>
       </div>

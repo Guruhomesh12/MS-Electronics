@@ -27,18 +27,26 @@ export function ManufacturingProcess() {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
 
   return (
-    <section id="process" className="py-32 bg-slate-50 relative" ref={containerRef}>
+    <section id="process" className="py-32 bg-[#050505] relative" ref={containerRef}>
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-24">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight mb-4">
-            The Process of <span className="text-accent">Perfection</span>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center space-x-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-6"
+          >
+            <span className="text-xs font-semibold text-accent tracking-widest uppercase">Manufacturing Process</span>
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">
+            The Process of <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-red-400">Perfection</span>
           </h2>
-          <p className="text-gray-600">A journey from concept to reality, governed by strict engineering standards.</p>
+          <p className="text-gray-400 text-lg">A journey from concept to reality, governed by strict engineering standards.</p>
         </div>
 
         <div className="relative">
           {/* Progress Line Background */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-black/5 -translate-x-1/2 rounded-full"></div>
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/5 -translate-x-1/2 rounded-full"></div>
           
           {/* Animated Progress Line */}
           <motion.div 
@@ -51,9 +59,9 @@ export function ManufacturingProcess() {
               const isEven = index % 2 === 0
               
               return (
-                <div key={step.id} className="relative flex items-center md:justify-between w-full">
+                <div key={step.id} className="relative flex items-center md:justify-between w-full group">
                   {/* Timeline Dot */}
-                  <div className="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-slate-50 border-2 border-accent z-10 -translate-x-1/2 shadow-[0_0_10px_rgba(0,240,255,0.8)]"></div>
+                  <div className="absolute left-6 md:left-1/2 w-5 h-5 rounded-full bg-[#121212] border-[3px] border-accent z-10 -translate-x-1/2 shadow-[0_0_15px_rgba(230,25,25,0.4)] group-hover:scale-125 transition-transform duration-300"></div>
                   
                   {/* Content Container */}
                   <div className={`w-full pl-16 md:pl-0 md:w-5/12 flex ${isEven ? "md:justify-end" : "md:justify-start"} md:${isEven ? "mr-auto text-right" : "ml-auto text-left"}`}>
@@ -62,11 +70,11 @@ export function ManufacturingProcess() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.6 }}
-                      className={`glass-card p-6 rounded-2xl w-full max-w-sm hover:border-accent/40 transition-colors ${isEven ? "md:items-end flex flex-col" : "md:items-start flex flex-col"}`}
+                      className={`glass-panel p-8 rounded-2xl w-full max-w-sm hover:border-accent/40 transition-colors ${isEven ? "md:items-end flex flex-col" : "md:items-start flex flex-col"}`}
                     >
-                      <span className="text-4xl font-black text-white/5 mb-2">{step.id}</span>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+                      <span className="text-5xl font-black text-white/10 mb-3">{step.id}</span>
+                      <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
                     </motion.div>
                   </div>
                 </div>

@@ -56,8 +56,18 @@ const itemVariants: Variants = {
 export function Products() {
   return (
     <section id="products" className="py-24 relative overflow-hidden bg-[#0a0a0a]">
+      {/* Abstract Tech Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/90 to-[#0a0a0a] z-10" />
+        <img 
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80" 
+          alt="Technology Background" 
+          className="w-full h-full object-cover opacity-15"
+        />
+      </div>
+
       {/* Background ambient light */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-accent/5 rounded-[100%] blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-accent/10 rounded-[100%] blur-[120px] pointer-events-none z-0"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-4">

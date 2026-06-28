@@ -40,6 +40,16 @@ const capabilities = [
 export function Capabilities() {
   return (
     <section id="capabilities" className="py-24 relative overflow-hidden bg-background">
+      {/* Abstract Tech Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/95 to-[#050505] z-10" />
+        <img 
+          src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=2000&q=80" 
+          alt="Engineering Background" 
+          className="w-full h-full object-cover opacity-10"
+        />
+      </div>
+      
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="space-y-4 max-w-2xl">

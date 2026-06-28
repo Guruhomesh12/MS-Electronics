@@ -43,7 +43,7 @@ export function Navbar() {
             <img src="/logo.png" alt="MS Electronics Logo" className="h-9 w-auto object-contain" />
           </div>
           <span className="text-3xl md:text-4xl font-extrabold tracking-wider text-white group-hover:text-glow transition-all duration-300">
-            Electronics
+            MS <span className="text-accent">Electronics</span>
           </span>
         </Link>
 

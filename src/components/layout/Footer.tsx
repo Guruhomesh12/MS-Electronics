@@ -10,7 +10,7 @@ export function Footer() {
               <img src="/logo.png" alt="MS Electronics Logo" className="h-7 w-auto object-contain" />
             </div>
             <span className="text-2xl font-extrabold tracking-wider text-white group-hover:text-glow transition-all duration-300">
-              Electronics
+              MS <span className="text-accent">Electronics</span>
             </span>
           </Link>
           <p className="text-sm text-gray-400 max-w-xs mt-2">

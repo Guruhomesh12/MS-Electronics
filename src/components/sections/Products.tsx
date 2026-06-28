@@ -8,32 +8,32 @@ import { Button } from "@/components/ui/button"
 const products = [
   {
     title: "Capacitive Touch Panels",
-    description: "Multi-touch, high-durability panels for modern interactive interfaces.",
+    description: "Multi-touch, high-durability panels for modern interactive interfaces. Custom engineered for extreme environments.",
     icon: Monitor,
   },
   {
     title: "Glass Touch Panels",
-    description: "Premium edge-to-edge glass designs with anti-glare and anti-fingerprint coatings.",
+    description: "Premium edge-to-edge glass designs with anti-glare, anti-reflective, and anti-fingerprint optical coatings.",
     icon: ShieldCheck,
   },
   {
     title: "Membrane Switches",
-    description: "Reliable tactile feedback for harsh industrial environments.",
+    description: "Reliable tactile feedback with fully sealed designs, perfect for harsh industrial or medical applications.",
     icon: Settings,
   },
   {
     title: "Industrial HMI Panels",
-    description: "Ruggedized interfaces designed to withstand extreme temperatures and vibration.",
+    description: "Ruggedized human-machine interfaces designed to withstand extreme temperatures, shock, and vibration.",
     icon: Cpu,
   },
   {
-    title: "Medical Touch Panels",
-    description: "Anti-microbial, glove-compatible screens for healthcare equipment.",
+    title: "Medical Displays",
+    description: "Anti-microbial, glove-compatible screens that meet strict healthcare equipment compliance standards.",
     icon: Activity,
   },
   {
-    title: "Automotive Touch Panels",
-    description: "High-brightness displays with extreme reliability for vehicular applications.",
+    title: "Automotive Interfaces",
+    description: "High-brightness displays with extreme reliability and extended life cycles for vehicular integration.",
     icon: Zap,
   }
 ]
@@ -55,27 +55,35 @@ const itemVariants: Variants = {
 
 export function Products() {
   return (
-    <section id="products" className="py-24 relative overflow-hidden bg-slate-50">
+    <section id="products" className="py-24 relative overflow-hidden bg-[#0a0a0a]">
       {/* Background ambient light */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-accent/5 rounded-[100%] blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-accent/5 rounded-[100%] blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center space-x-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-4"
+          >
+            <span className="text-xs font-semibold text-accent tracking-widest uppercase">Our Products</span>
+          </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight"
           >
-            Engineered for <span className="text-accent">Every Industry</span>
+            Engineered for <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-red-400">Every Industry</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-600 max-w-2xl mx-auto"
+            className="text-gray-400 max-w-2xl mx-auto text-lg"
           >
             From rugged industrial environments to sterile medical facilities, our custom hardware solutions perform flawlessly.
           </motion.p>
@@ -94,21 +102,30 @@ export function Products() {
               <motion.div 
                 key={product.title} 
                 variants={itemVariants}
-                className="group relative glass-card p-1 rounded-2xl transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(0,240,255,0.15)]"
+                className="group relative h-full glass-panel rounded-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
-                <div className="relative h-full bg-white/80 rounded-[14px] p-8 flex flex-col items-start gap-6 border border-black/5 group-hover:border-accent/30 transition-colors duration-500">
-                  <div className="p-3 rounded-lg bg-black/5 group-hover:bg-accent/10 transition-colors duration-500">
-                    <Icon className="w-8 h-8 text-gray-900 group-hover:text-accent transition-colors duration-500" />
+                {/* Glow Effect behind the card */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl"></div>
+                
+                <div className="relative h-full p-8 flex flex-col items-start gap-6 z-10">
+                  <div className="p-4 rounded-xl bg-black/40 border border-white/5 group-hover:border-accent/30 group-hover:bg-accent/10 transition-colors duration-500">
+                    <Icon className="w-8 h-8 text-gray-400 group-hover:text-accent transition-colors duration-500" />
                   </div>
-                  <div className="space-y-3 flex-grow">
-                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-glow transition-all duration-300">{product.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{product.description}</p>
+                  <div className="space-y-4 flex-grow">
+                    <h3 className="text-2xl font-semibold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
+                      {product.title}
+                    </h3>
+                    <p className="text-gray-400 leading-relaxed text-sm">
+                      {product.description}
+                    </p>
                   </div>
-                  <Button variant="link" className="px-0 text-gray-700 group-hover:text-accent transition-colors duration-300">
+                  <Button variant="link" className="px-0 text-white/70 group-hover:text-accent transition-colors duration-300">
                     Learn more <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
+                
+                {/* Animated Border Line */}
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-accent group-hover:w-full transition-all duration-700 ease-out z-20"></div>
               </motion.div>
             )
           })}
@@ -118,10 +135,10 @@ export function Products() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-20 text-center"
         >
-          <Button variant="outline" size="lg" className="px-8 group">
-            View All Products
+          <Button variant="outline" size="lg" className="px-8 group border-white/20 text-white hover:bg-white/10">
+            View All Display Solutions
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </motion.div>

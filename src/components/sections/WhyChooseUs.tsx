@@ -2,78 +2,117 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { XCircle, CheckCircle2 } from "lucide-react"
+import { CheckCircle2, ShieldCheck, Factory, Users } from "lucide-react"
 
 const features = [
-  { name: "Impact Resistance", traditional: "Fragile LCD Surface", ours: "Up to 300% Stronger" },
-  { name: "Scratch Resistance", traditional: "Scratches at 3H", ours: "No Scratches up to 9H" },
-  { name: "Outdoor Visibility", traditional: "High Ambient Reflection", ours: "400% Contrast Increase" },
-  { name: "Condensation", traditional: "Prone to Fogging", ours: "Zero Moisture Penetration" },
-  { name: "Touch Accuracy", traditional: "Parallax Errors", ours: "Highly Accurate Touch" },
-  { name: "Shock & Vibration", traditional: "Film Damage Risk", ours: "300% Higher Resistance" },
+  {
+    title: "US-Based Engineering & Support",
+    description: "Our dedicated team of engineers provides rapid prototyping and local support, ensuring your project stays on schedule.",
+    icon: Users,
+  },
+  {
+    title: "ISO Certified Manufacturing",
+    description: "Operating under strict ISO 9001:2015 quality standards with Class 10k and Class 1k cleanrooms.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "End-to-End Customization",
+    description: "From custom cover glass and touch sensors to fully integrated assemblies and firmware tuning.",
+    icon: Factory,
+  }
 ]
 
 export function WhyChooseUs() {
   return (
-    <section className="py-24 relative overflow-hidden bg-white">
+    <section className="py-24 relative overflow-hidden bg-[#0a0a0a]">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
-            The Power of <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-gray-900">Optical Bonding</span>
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            By eliminating the air gap between the display and cover glass, our advanced bonding services dramatically increase ruggedness and sunlight readability.
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
-          {/* Header Row */}
-          <div className="grid grid-cols-3 text-center mb-6 px-4 md:px-8">
-            <div className="text-left font-semibold text-gray-500 uppercase tracking-wider text-sm hidden md:block">
-              Feature
-            </div>
-            <div className="md:hidden"></div>
-            <div className="font-semibold text-gray-500 uppercase tracking-wider text-sm">
-              Traditional
-            </div>
-            <div className="font-bold text-accent uppercase tracking-wider text-sm text-glow">
-              Our Manufacturing
-            </div>
-          </div>
-
-          {/* Comparison Rows */}
-          <div className="space-y-4">
-            {features.map((feature, i) => (
-              <motion.div
-                key={feature.name}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="grid grid-cols-3 items-center p-4 md:p-6 rounded-2xl glass-card relative overflow-hidden group hover:border-accent/30 transition-colors"
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Content Column */}
+          <div className="space-y-10">
+            <div className="space-y-4">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center space-x-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5"
               >
-                {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                
-                {/* Feature Name */}
-                <div className="text-left font-medium text-gray-900 md:text-lg col-span-3 md:col-span-1 mb-3 md:mb-0">
-                  {feature.name}
-                </div>
-                
-                {/* Traditional */}
-                <div className="text-center flex flex-col items-center gap-2 border-r md:border-r-0 border-black/5 md:border-transparent pr-4 md:pr-0">
-                  <XCircle className="text-red-500/50 w-6 h-6" />
-                  <span className="text-sm md:text-base text-gray-600">{feature.traditional}</span>
-                </div>
-                
-                {/* Ours */}
-                <div className="text-center flex flex-col items-center gap-2 pl-4 md:pl-0">
-                  <CheckCircle2 className="text-accent w-6 h-6 text-glow" />
-                  <span className="text-sm md:text-base text-gray-900 font-medium">{feature.ours}</span>
-                </div>
+                <span className="text-xs font-semibold text-accent tracking-widest uppercase">Why Choose Us</span>
               </motion.div>
-            ))}
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-bold text-white tracking-tight"
+              >
+                Uncompromising Quality.<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white">Global Standards.</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-gray-400 text-lg leading-relaxed max-w-lg"
+              >
+                We partner with OEMs worldwide to design, manufacture, and integrate mission-critical display solutions that simply cannot fail.
+              </motion.p>
+            </div>
+
+            <div className="space-y-6">
+              {features.map((feature, i) => (
+                <motion.div 
+                  key={feature.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + (i * 0.1) }}
+                  className="flex items-start gap-4"
+                >
+                  <div className="p-2 rounded-lg bg-accent/10 mt-1 border border-accent/20">
+                    <feature.icon className="w-6 h-6 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
+                    <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
+
+          {/* Visual Column */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative lg:h-[600px] w-full"
+          >
+            <div className="absolute inset-0 bg-accent/10 rounded-3xl blur-3xl transform rotate-3"></div>
+            <div className="relative h-full w-full rounded-3xl overflow-hidden border border-white/10 glass-panel p-2">
+              <img 
+                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=80" 
+                alt="Cleanroom Manufacturing" 
+                className="w-full h-full object-cover rounded-2xl opacity-90"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent rounded-2xl"></div>
+              
+              {/* Floating Stat Badge */}
+              <motion.div 
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-8 left-8 glass p-6 rounded-2xl border border-white/20 max-w-xs"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <CheckCircle2 className="w-8 h-8 text-accent" />
+                  <span className="text-3xl font-bold text-white">100%</span>
+                </div>
+                <p className="text-white/80 font-medium">Yield Guarantee on Custom Optical Bonding</p>
+              </motion.div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

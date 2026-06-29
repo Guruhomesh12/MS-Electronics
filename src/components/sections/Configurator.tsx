@@ -97,15 +97,15 @@ export function Configurator() {
   const displayR = radius * previewScale
 
   return (
-    <section id="quote" className="py-24 bg-slate-50 relative overflow-hidden">
+    <section id="quote" className="py-24 bg-background relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] pointer-events-none"></div>
       
       <div className="container mx-auto px-6 relative z-10 max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">
             Build Your <span className="text-accent">Custom Panel</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto">
             Configure hardware specifications and request a manufacturing quotation instantly.
           </p>
         </div>
@@ -113,10 +113,10 @@ export function Configurator() {
         <div className="glass-card rounded-3xl overflow-hidden border border-black/5 shadow-2xl">
           {/* Progress Header */}
           <div className="flex border-b border-black/5 bg-black/5">
-            <button onClick={() => !isSuccess && setStep(1)} className={`flex-1 py-4 text-center font-medium transition-colors ${step === 1 ? 'text-accent border-b-2 border-accent' : 'text-gray-600 hover:text-gray-700'}`}>
+            <button onClick={() => !isSuccess && setStep(1)} className={`flex-1 py-4 text-center font-medium transition-colors ${step === 1 ? 'text-accent border-b-2 border-accent' : 'text-gray-400 hover:text-gray-300'}`}>
               1. Hardware Config
             </button>
-            <button onClick={() => !isSuccess && setStep(2)} className={`flex-1 py-4 text-center font-medium transition-colors ${step === 2 ? 'text-accent border-b-2 border-accent' : 'text-gray-600 hover:text-gray-700'}`}>
+            <button onClick={() => !isSuccess && setStep(2)} className={`flex-1 py-4 text-center font-medium transition-colors ${step === 2 ? 'text-accent border-b-2 border-accent' : 'text-gray-400 hover:text-gray-300'}`}>
               2. Project Details
             </button>
           </div>
@@ -134,13 +134,13 @@ export function Configurator() {
                   {/* Controls */}
                   <div className="space-y-8">
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Size Select</h3>
+                      <h3 className="text-lg font-semibold text-white mb-4">Quick Size Select</h3>
                       <div className="flex flex-wrap gap-2">
                         {presetSizes.map(size => (
                           <button 
                             key={size.label}
                             onClick={() => handlePresetSelect(size.w, size.h)}
-                            className="px-3 py-1.5 text-sm rounded bg-black/5 border border-black/5 text-gray-700 hover:bg-accent/20 hover:border-accent/50 hover:text-accent transition-colors"
+                            className="px-3 py-1.5 text-sm rounded bg-black/5 border border-black/5 text-gray-300 hover:bg-accent/20 hover:border-accent/50 hover:text-accent transition-colors"
                           >
                             {size.label}
                           </button>
@@ -150,32 +150,32 @@ export function Configurator() {
 
                     <div className="space-y-6">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-semibold text-gray-900">Custom Dimensions (inches)</h3>
-                        <button onClick={toggleOrientation} className="text-xs px-2 py-1 bg-black/5 rounded text-gray-700 hover:text-gray-900 transition-colors">
+                        <h3 className="text-lg font-semibold text-white">Custom Dimensions (inches)</h3>
+                        <button onClick={toggleOrientation} className="text-xs px-2 py-1 bg-black/5 rounded text-gray-300 hover:text-white transition-colors">
                           Swap {orientation === 'landscape' ? 'Portrait' : 'Landscape'}
                         </button>
                       </div>
                       
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs text-gray-600 mb-1">Width</label>
-                          <input type="number" value={width} onChange={e => setWidth(Number(e.target.value))} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent" step="0.1" />
+                          <label className="block text-xs text-gray-400 mb-1">Width</label>
+                          <input type="number" value={width} onChange={e => setWidth(Number(e.target.value))} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent" step="0.1" />
                         </div>
                         <div>
-                          <label className="block text-xs text-gray-600 mb-1">Height</label>
-                          <input type="number" value={height} onChange={e => setHeight(Number(e.target.value))} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent" step="0.1" />
+                          <label className="block text-xs text-gray-400 mb-1">Height</label>
+                          <input type="number" value={height} onChange={e => setHeight(Number(e.target.value))} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent" step="0.1" />
                         </div>
                       </div>
                       
                       <div>
-                        <label className="block text-xs text-gray-600 mb-1">Corner Radius ({radius}")</label>
+                        <label className="block text-xs text-gray-400 mb-1">Corner Radius ({radius}")</label>
                         <input type="range" min="0" max="1" step="0.05" value={radius} onChange={e => setRadius(Number(e.target.value))} className="w-full accent-accent" />
                       </div>
                     </div>
 
                     <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 flex items-start gap-3">
                       <AlertCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                      <p className="text-xs text-gray-700 leading-relaxed">
+                      <p className="text-xs text-gray-300 leading-relaxed">
                         We manufacture custom touch panel hardware only. Operating systems and software are developed, installed, and maintained by the customer or integration partner. Contact engineering for compatibility questions.
                       </p>
                     </div>
@@ -186,7 +186,7 @@ export function Configurator() {
                   </div>
 
                   {/* Live Preview */}
-                  <div className="bg-slate-50 rounded-2xl border border-black/5 flex items-center justify-center p-8 relative min-h-[400px]">
+                  <div className="bg-background rounded-2xl border border-black/5 flex items-center justify-center p-8 relative min-h-[400px]">
                     <div className="absolute top-4 left-4 text-xs font-mono text-gray-500">LIVE PREVIEW</div>
                     
                     <motion.div 
@@ -223,43 +223,43 @@ export function Configurator() {
                   <form onSubmit={handleSubmit} className="space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-4">
-                        <h3 className="text-lg font-semibold text-gray-900 border-b border-black/5 pb-2">Contact Info</h3>
+                        <h3 className="text-lg font-semibold text-white border-b border-black/5 pb-2">Contact Info</h3>
                         <div>
-                          <label className="block text-xs text-gray-600 mb-1">Company Name *</label>
-                          <input required name="companyName" value={formData.companyName} onChange={handleInputChange} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent" />
+                          <label className="block text-xs text-gray-400 mb-1">Company Name *</label>
+                          <input required name="companyName" value={formData.companyName} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent" />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Contact Person *</label>
-                            <input required name="contactPerson" value={formData.contactPerson} onChange={handleInputChange} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent" />
+                            <label className="block text-xs text-gray-400 mb-1">Contact Person *</label>
+                            <input required name="contactPerson" value={formData.contactPerson} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent" />
                           </div>
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Country</label>
-                            <input name="country" value={formData.country} onChange={handleInputChange} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent" />
+                            <label className="block text-xs text-gray-400 mb-1">Country</label>
+                            <input name="country" value={formData.country} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent" />
                           </div>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Email *</label>
-                            <input required type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent" />
+                            <label className="block text-xs text-gray-400 mb-1">Email *</label>
+                            <input required type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent" />
                           </div>
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Phone</label>
-                            <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent" />
+                            <label className="block text-xs text-gray-400 mb-1">Phone</label>
+                            <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent" />
                           </div>
                         </div>
                       </div>
 
                       <div className="space-y-4">
-                        <h3 className="text-lg font-semibold text-gray-900 border-b border-black/5 pb-2">Project Specs</h3>
+                        <h3 className="text-lg font-semibold text-white border-b border-black/5 pb-2">Project Specs</h3>
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Quantity *</label>
-                            <input required type="number" name="quantity" value={formData.quantity} onChange={handleInputChange} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent" />
+                            <label className="block text-xs text-gray-400 mb-1">Quantity *</label>
+                            <input required type="number" name="quantity" value={formData.quantity} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent" />
                           </div>
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Mounting</label>
-                            <select name="mountingType" value={formData.mountingType} onChange={handleInputChange} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent">
+                            <label className="block text-xs text-gray-400 mb-1">Mounting</label>
+                            <select name="mountingType" value={formData.mountingType} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent">
                               <option>Optical Bonding</option>
                               <option>Air Gap Bonding</option>
                               <option>Bezel Mount</option>
@@ -268,8 +268,8 @@ export function Configurator() {
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Environment</label>
-                            <select name="environment" value={formData.environment} onChange={handleInputChange} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent">
+                            <label className="block text-xs text-gray-400 mb-1">Environment</label>
+                            <select name="environment" value={formData.environment} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent">
                               <option>Indoor</option>
                               <option>Outdoor (High Brightness)</option>
                               <option>Harsh Industrial</option>
@@ -277,8 +277,8 @@ export function Configurator() {
                             </select>
                           </div>
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Glass Finish</label>
-                            <select name="glassFinish" value={formData.glassFinish} onChange={handleInputChange} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent">
+                            <label className="block text-xs text-gray-400 mb-1">Glass Finish</label>
+                            <select name="glassFinish" value={formData.glassFinish} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent">
                               <option>Anti-Glare (AG)</option>
                               <option>Anti-Reflective (AR)</option>
                               <option>Anti-Fingerprint (AF)</option>
@@ -287,15 +287,15 @@ export function Configurator() {
                           </div>
                         </div>
                         <div>
-                          <label className="block text-xs text-gray-600 mb-1">Project Description & Requirements</label>
-                          <textarea rows={3} name="projectDescription" value={formData.projectDescription} onChange={handleInputChange} className="w-full bg-white/50 border border-black/5 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:border-accent resize-none"></textarea>
+                          <label className="block text-xs text-gray-400 mb-1">Project Description & Requirements</label>
+                          <textarea rows={3} name="projectDescription" value={formData.projectDescription} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent resize-none"></textarea>
                         </div>
                       </div>
                     </div>
 
                     <div className="bg-black/5 border border-black/5 border-dashed rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-black/5 transition-colors">
-                       <Upload className="w-8 h-8 text-gray-600 mb-2" />
-                       <p className="text-sm text-gray-700">Drag & drop CAD/PDF files here or click to browse</p>
+                       <Upload className="w-8 h-8 text-gray-400 mb-2" />
+                       <p className="text-sm text-gray-300">Drag & drop CAD/PDF files here or click to browse</p>
                        <p className="text-xs text-gray-500 mt-1">Supported: PDF, DXF, DWG, STEP, ZIP (Max 50MB)</p>
                     </div>
 
@@ -325,8 +325,8 @@ export function Configurator() {
                   <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center border border-green-500/50 box-glow shadow-[0_0_30px_rgba(34,197,94,0.3)]">
                     <Check className="w-10 h-10 text-green-400" />
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-900">Quotation Requested Successfully</h3>
-                  <p className="text-gray-600 max-w-md">
+                  <h3 className="text-3xl font-bold text-white">Quotation Requested Successfully</h3>
+                  <p className="text-gray-400 max-w-md">
                     Thank you, {formData.contactPerson}. Our engineering team has received your hardware specifications and will contact you within 24 hours at {formData.email}.
                   </p>
                   <Button variant="outline" onClick={() => {

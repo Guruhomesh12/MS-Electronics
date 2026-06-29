@@ -10,7 +10,7 @@ export function Footer() {
               <img src="/logo.png" alt="MS Electronics Logo" className="h-7 w-auto object-contain" />
             </div>
             <span className="text-2xl font-extrabold tracking-wider text-accent group-hover:text-glow transition-all duration-300">
-              MS Electronics
+              MS Electronics Company
             </span>
           </Link>
           <p className="text-sm text-gray-400 max-w-xs mt-2">
@@ -33,7 +33,6 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-gray-400">
             <li><Link href="/about" className="hover:text-accent transition-colors">About Us</Link></li>
             <li><Link href="/gallery" className="hover:text-accent transition-colors">Gallery</Link></li>
-            <li><Link href="/downloads" className="hover:text-accent transition-colors">Downloads Center</Link></li>
             <li><Link href="/blog" className="hover:text-accent transition-colors">Insights & News</Link></li>
           </ul>
         </div>
@@ -53,7 +52,7 @@ export function Footer() {
       </div>
       
       <div className="container mx-auto px-6 mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
-        <p>© {new Date().getFullYear()} MS Electronics. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} MS Electronics Company. All rights reserved.</p>
         <div className="flex space-x-4 mt-4 md:mt-0">
           <Link href="/privacy" className="hover:text-gray-400 transition-colors">Privacy Policy</Link>
           <Link href="/terms" className="hover:text-gray-400 transition-colors">Terms of Service</Link>

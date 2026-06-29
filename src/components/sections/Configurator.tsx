@@ -186,7 +186,7 @@ export function Configurator() {
                   </div>
 
                   {/* Live Preview */}
-                  <div className="bg-background rounded-2xl border border-black/5 flex items-center justify-center p-8 relative min-h-[400px]">
+                  <div className="bg-slate-50 rounded-2xl border border-black/5 flex items-center justify-center p-8 relative min-h-[400px]">
                     <div className="absolute top-4 left-4 text-xs font-mono text-gray-500">LIVE PREVIEW</div>
                     
                     <motion.div 

@@ -129,9 +129,7 @@ export function Products() {
                       {product.description}
                     </p>
                   </div>
-                  <Button variant="link" className="px-0 text-white/70 group-hover:text-accent transition-colors duration-300">
-                    Learn more <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+
                 </div>
                 
                 {/* Animated Border Line */}

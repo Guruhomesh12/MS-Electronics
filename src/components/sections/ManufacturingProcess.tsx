@@ -64,7 +64,7 @@ export function ManufacturingProcess() {
                   <div className="absolute left-6 md:left-1/2 w-5 h-5 rounded-full bg-white border-[3px] border-accent z-10 -translate-x-1/2 shadow-[0_0_10px_rgba(230,25,25,0.3)] group-hover:scale-125 transition-transform duration-300"></div>
                   
                   {/* Content Container */}
-                  <div className={`w-full pl-16 md:pl-0 md:w-5/12 flex ${isEven ? "md:justify-end" : "md:justify-start"} md:${isEven ? "mr-auto text-right" : "ml-auto text-left"}`}>
+                  <div className={`w-full pl-16 md:pl-0 md:w-5/12 flex ${isEven ? "md:justify-end md:mr-auto md:text-right" : "md:justify-start md:ml-auto md:text-left"}`}>
                     <motion.div 
                       initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                       whileInView={{ opacity: 1, x: 0 }}

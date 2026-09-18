@@ -65,29 +65,34 @@ export function Configurator() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate API call
-    try {
-      const response = await fetch('/api/quote', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          config: { width, height, radius, orientation }
-        })
-      })
-      
-      if (response.ok) {
-        setIsSuccess(true)
-        setStep(3)
-      } else {
-        alert("There was an error submitting your quote. Please try again.")
-      }
-    } catch (error) {
-      console.error(error)
-      alert("There was an error submitting your quote. Please try again.")
-    } finally {
-      setIsSubmitting(false)
-    }
+    const subject = encodeURIComponent(`Custom Touch Panel Quote Request - ${formData.companyName}`)
+    const body = encodeURIComponent(`
+Company: ${formData.companyName}
+Contact Person: ${formData.contactPerson}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Country: ${formData.country}
+
+-- Hardware Specs --
+Dimensions: ${width}" x ${height}"
+Corner Radius: ${radius}"
+Orientation: ${orientation}
+
+-- Project Specs --
+Quantity: ${formData.quantity}
+Mounting: ${formData.mountingType}
+Environment: ${formData.environment}
+Glass Finish: ${formData.glassFinish}
+
+-- Description --
+${formData.projectDescription}
+    `.trim())
+
+    window.location.href = `mailto:sivatamma@gmail.com?subject=${subject}&body=${body}`
+    
+    setIsSubmitting(false)
+    setIsSuccess(true)
+    setStep(3)
   }
 
   // Calculate visual aspect ratio for the preview
@@ -260,9 +265,9 @@ export function Configurator() {
                           <div>
                             <label className="block text-xs text-gray-400 mb-1">Mounting</label>
                             <select name="mountingType" value={formData.mountingType} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent">
-                              <option>Optical Bonding</option>
-                              <option>Air Gap Bonding</option>
-                              <option>Bezel Mount</option>
+                              <option className="bg-gray-900">Optical Bonding</option>
+                              <option className="bg-gray-900">Air Gap Bonding</option>
+                              <option className="bg-gray-900">Bezel Mount</option>
                             </select>
                           </div>
                         </div>
@@ -270,19 +275,19 @@ export function Configurator() {
                           <div>
                             <label className="block text-xs text-gray-400 mb-1">Environment</label>
                             <select name="environment" value={formData.environment} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent">
-                              <option>Indoor</option>
-                              <option>Outdoor (High Brightness)</option>
-                              <option>Harsh Industrial</option>
-                              <option>Medical/Sterile</option>
+                              <option className="bg-gray-900">Indoor</option>
+                              <option className="bg-gray-900">Outdoor (High Brightness)</option>
+                              <option className="bg-gray-900">Harsh Industrial</option>
+                              <option className="bg-gray-900">Medical/Sterile</option>
                             </select>
                           </div>
                           <div>
                             <label className="block text-xs text-gray-400 mb-1">Glass Finish</label>
                             <select name="glassFinish" value={formData.glassFinish} onChange={handleInputChange} className="w-full bg-white/10 border border-black/5 rounded-md px-3 py-2 text-white focus:outline-none focus:border-accent">
-                              <option>Anti-Glare (AG)</option>
-                              <option>Anti-Reflective (AR)</option>
-                              <option>Anti-Fingerprint (AF)</option>
-                              <option>Clear Glass</option>
+                              <option className="bg-gray-900">Anti-Glare (AG)</option>
+                              <option className="bg-gray-900">Anti-Reflective (AR)</option>
+                              <option className="bg-gray-900">Anti-Fingerprint (AF)</option>
+                              <option className="bg-gray-900">Clear Glass</option>
                             </select>
                           </div>
                         </div>
@@ -293,11 +298,12 @@ export function Configurator() {
                       </div>
                     </div>
 
-                    <div className="bg-black/5 border border-black/5 border-dashed rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-black/5 transition-colors">
-                       <Upload className="w-8 h-8 text-gray-400 mb-2" />
-                       <p className="text-sm text-gray-300">Drag & drop CAD/PDF files here or click to browse</p>
+                    <label className="bg-black/5 border border-black/5 border-dashed rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-white/5 transition-colors group">
+                       <input type="file" className="hidden" accept=".pdf,.dxf,.dwg,.step,.zip" multiple />
+                       <Upload className="w-8 h-8 text-gray-400 mb-2 group-hover:text-accent transition-colors" />
+                       <p className="text-sm text-gray-300 group-hover:text-white transition-colors">Drag & drop CAD/PDF files here or click to browse</p>
                        <p className="text-xs text-gray-500 mt-1">Supported: PDF, DXF, DWG, STEP, ZIP (Max 50MB)</p>
-                    </div>
+                    </label>
 
                     <div className="flex justify-between items-center pt-4 border-t border-black/5">
                       <Button type="button" variant="ghost" onClick={() => setStep(1)}>

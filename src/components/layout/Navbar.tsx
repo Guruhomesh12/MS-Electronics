@@ -61,7 +61,7 @@ export function Navbar() {
             </Link>
           ))}
           <Button variant="default" size="sm" className="bg-accent text-white hover:bg-accent/90 border-0" asChild>
-            <Link href="/#quote">Request Quote</Link>
+            <Link href="/contact">Request Quote</Link>
           </Button>
         </nav>
 
@@ -92,7 +92,7 @@ export function Navbar() {
           </Link>
         ))}
         <Button variant="default" size="lg" className="bg-accent text-white hover:bg-accent/90 border-0" asChild onClick={() => setMobileMenuOpen(false)}>
-          <Link href="/#quote">Request Quote</Link>
+          <Link href="/contact">Request Quote</Link>
         </Button>
       </div>
     </header>

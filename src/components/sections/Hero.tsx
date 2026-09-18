@@ -52,8 +52,8 @@ export function Hero() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
             <Button variant="default" size="lg" className="w-full sm:w-auto bg-accent text-white hover:bg-accent/90 border-0" asChild>
-              <Link href="/#quote">
-                Get a Custom Quote
+              <Link href="/contact">
+                Contact Us
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>

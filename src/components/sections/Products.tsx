@@ -147,8 +147,8 @@ export function Products() {
           className="mt-20 text-center"
         >
           <Button variant="outline" size="lg" className="px-8 group border-white/20 text-white hover:bg-white/10" asChild>
-            <Link href="/#quote">
-              View All Display Solutions
+            <Link href="/contact">
+              Contact Sales
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>

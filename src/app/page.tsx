@@ -5,7 +5,6 @@ import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { ManufacturingProcess } from "@/components/sections/ManufacturingProcess";
 import { Industries } from "@/components/sections/Industries";
 import { Quality } from "@/components/sections/Quality";
-import { Configurator } from "@/components/sections/Configurator";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <ManufacturingProcess />
       <Industries />
       <Quality />
-      <Configurator />
     </div>
   );
 }

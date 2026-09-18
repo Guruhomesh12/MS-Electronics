@@ -40,7 +40,7 @@ export default function ContactPage() {
                   <Phone className="w-6 h-6 text-accent mt-1 mr-4 shrink-0" />
                   <div>
                     <h4 className="font-medium text-white">Phone</h4>
-                    <p className="text-gray-300 text-sm mt-1">+91 9246288140<br/>+1 (555) 987-6543 (Support)</p>
+                    <p className="text-gray-300 text-sm mt-1">+91 9246288140</p>
                   </div>
                 </li>
                 

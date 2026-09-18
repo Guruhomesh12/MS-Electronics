@@ -5,11 +5,11 @@ import { motion } from "framer-motion"
 
 const industries = [
   { name: "Avionics", image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=800&q=80" },
-  { name: "Military & Defense", image: "https://images.unsplash.com/photo-1579624584288-51ce54f15d2f?auto=format&fit=crop&w=800&q=80" },
+  { name: "Military & Defense", image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=800&q=80" },
   { name: "Medical", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" },
   { name: "Industrial", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" },
   { name: "Marine", image: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=800&q=80" },
-  { name: "Digital Signage", image: "https://images.unsplash.com/photo-1552826458-18e3881fa6a4?auto=format&fit=crop&w=800&q=80" },
+  { name: "Digital Signage", image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" },
 ]
 
 export function Industries() {

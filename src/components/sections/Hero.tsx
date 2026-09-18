@@ -63,10 +63,6 @@ export function Hero() {
                 Explore Capabilities
               </Link>
             </Button>
-            <Button variant="ghost" size="lg" className="w-full sm:w-auto text-gray-300 hover:text-white hover:bg-white/5">
-              <PlayCircle className="mr-2 w-4 h-4" />
-              Watch Our Process
-            </Button>
           </div>
         </motion.div>
       </div>

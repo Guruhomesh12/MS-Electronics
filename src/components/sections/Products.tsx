@@ -4,6 +4,7 @@ import * as React from "react"
 import { motion, Variants } from "framer-motion"
 import { ArrowRight, Monitor, Settings, Zap, ShieldCheck, Activity, Cpu } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const products = [
   {
